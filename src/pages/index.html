@@ -1,0 +1,47 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html ng-app="petStore"> 
+	<head>
+		<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/application.css"/>
+		<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
+		<script type="text/javascript" src="../js/products.js"></script>
+	</head>
+	<body > 
+		<div class="container" ng-controller='StoreController as store'>
+			<div class="page-header">
+			    <h1>My first page with Angular and Bootstrap</h1>      
+			 </div>			
+			<p>{{"hello" + " Viviana"}}</p>
+			<p>la somma di 4 + 5 è :{{4 +5}}</p>
+
+
+
+
+			<!--  Products Container  -->
+		    <div class="list-group">
+		      	<!--  Product Container  -->
+		      	<div class="list-group-item" ng-repeat="product in store.products">
+		        	<h3>
+		         	 	{{product.name}}
+		          		<em class="pull-right">{{product.price | currency}}</em>
+		        	</h3>
+
+		        	<!-- Image Gallery  -->
+		        	<product-gallery></product-gallery>
+		        	
+		      		<div ng-show="product.canPurchase" class="d-block">
+		      			<button type="button" class="btn btn-info ">acquista</button>
+		      		</div>		      		
+		      		<p>&nbsp;</p>
+
+		      		<!-- tab-controller -->
+		      		<product-tabs></product-tabs>
+
+		    	</div>
+		    </div>		
+		
+	</body> 
+</html>
